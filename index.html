@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ошуркова Анастасия — UX/UI-дизайнер</title>
+<meta name="description" content="Портфолио UX/UI-дизайнера: кейс FitAI — мобильный UX от аудита до юзабилити-теста. iOS, Material 3, Foldable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F1115; --surface:#171A21; --card:#1D222C; --line:rgba(255,255,255,.09);
+  --text:#FFFFFF; --muted:#9CA0AB; --accent:#1A3EF5; --accent-soft:rgba(26,62,245,.16);
+  --ok:#7BE495; --warn:#FFD54D; --bad:#FF8A8A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.num{font-family:Aldrich,Inter,system-ui,sans-serif;font-weight:400;letter-spacing:.3px}
+img{max-width:100%;display:block;border-radius:12px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{scroll-margin-top:84px;padding:80px 0}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(15,17,21,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:8px;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-weight:600;font-size:15px;margin-right:auto;white-space:nowrap}
+.logo i{color:var(--accent);font-style:normal}
+nav a.l{padding:12px 14px;border-radius:10px;color:var(--muted);font-size:14.5px;min-height:44px;display:inline-flex;align-items:center}
+nav a.l:hover{color:#fff;background:var(--card)}
+nav a.dl{background:var(--accent);color:#fff;font-weight:600;padding:12px 18px;border-radius:10px;font-size:14.5px;display:inline-flex;align-items:center;min-height:44px}
+nav a.dl:hover{filter:brightness(1.12)}
+
+/* hero */
+header.hero{padding:96px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.kicker{display:inline-block;font-size:12.5px;letter-spacing:2.2px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 14px;margin-bottom:22px}
+h1{font-size:clamp(34px,5.2vw,54px);line-height:1.12;margin-bottom:18px}
+h1 span{color:var(--accent)}
+.lead{color:var(--muted);font-size:18px;max-width:520px;margin-bottom:30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:12px;font-weight:600;font-size:15.5px;border:1px solid transparent;transition:.18s}
+.btn.p{background:var(--accent);color:#fff}
+.btn.p:hover{filter:brightness(1.15)}
+.btn.s{border-color:var(--line);color:#fff}
+.btn.s:hover{background:var(--card)}
+.hero img{border:1px solid var(--line)}
+
+/* sections chrome */
+.tag{font-size:12.5px;letter-spacing:2.2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+h2{font-size:clamp(26px,3.6vw,38px);line-height:1.2;margin-bottom:20px}
+p.sub{color:var(--muted);max-width:760px;margin-bottom:36px}
+
+/* meta chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 34px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:13px;border-radius:999px;padding:7px 13px}
+
+/* case grid */
+.block{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 32px;margin-bottom:20px}
+.block h3{font-size:21px;margin-bottom:12px}
+.block h3 .num{color:var(--accent);margin-right:10px;font-size:15px}
+.block p,.block li{color:#D6D9E0;font-size:15.5px}
+.block ul{margin:10px 0 0 20px}
+.block li{margin-bottom:7px}
+.quote{border-left:3px solid var(--accent);padding:6px 0 6px 16px;margin-top:16px;color:var(--muted);font-style:italic;font-size:15px}
+figure{margin-top:18px}
+figure figcaption{color:var(--muted);font-size:13px;margin-top:10px}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.metric b{display:block;font-family:Aldrich;font-weight:400;font-size:26px;margin-bottom:4px}
+.metric b em{color:var(--accent);font-style:normal}
+.metric span{color:var(--muted);font-size:13px;line-height:1.4;display:block}
+
+/* table */
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:15px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--card);color:#fff;font-weight:600;font-size:14px}
+tr:last-child td{border-bottom:none}
+td.total{font-weight:700}
+
+/* gallery */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px}
+.tagskill{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.skill{background:var(--accent-soft);color:#BFD0FF;border:1px solid rgba(26,62,245,.4);border-radius:8px;padding:7px 12px;font-size:13.5px}
+.side .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px}
+.side .card h4{font-size:13px;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);margin-bottom:8px}
+.side .card p{font-size:14.5px;color:#D6D9E0}
+
+/* contact */
+.contact{text-align:center;padding:96px 0 104px;background:
+  radial-gradient(60% 120% at 50% 0%,rgba(26,62,245,.22),transparent 70%)}
+.contact h2{margin-bottom:12px}
+.contact p{color:var(--muted);margin-bottom:30px}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+
+@media (max-width:880px){
+  .hero .wrap,.about .wrap{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  section{padding:56px 0}
+}
+@media (max-width:560px){
+  .grid2,.grid3,.metrics{grid-template-columns:1fr}
+  .block{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="logo">Анастасия Ошуркова <i>/</i> UX·UI</span>
+  <a class="l" href="#case">Кейс</a>
+  <a class="l" href="#about">О себе</a>
+  <a class="l" href="#contact">Контакты</a>
+  <a class="dl" href="resume.html" target="_blank">Резюме · PDF ↗</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="kicker">Product / UX/UI Designer · СПб</span>
+    <h1>Интерфейсы, которые <span>отвечают</span> на тап</h1>
+    <p class="lead">Пришла в дизайн из разработки (React, LG R&D, Aston), поэтому проектирую решения, которые доживают до продакшена — с токенами, состояниями и доступностью по умолчанию.</p>
+    <div class="cta">
+      <a class="btn p" href="#case">Смотреть кейс FitAI</a>
+      <a class="btn s" href="mailto:adoshurkova@yandex.ru">Написать мне</a>
+    </div>
+  </div>
+  <img src="img/01-hero.png" alt="Мокап телефона с экраном тренировки FitAI, акцентная кнопка Start" loading="eager">
+</div></header>
+
+<section id="case"><div class="wrap">
+  <div class="tag">Кейс 01 · полный цикл · соло</div>
+  <h2>FitAI — мобильный UX от аудита до юзабилити-теста</h2>
+  <p class="sub">Фитнес-приложения теряют новичков ещё до первой тренировки. Я прошла весь цикл: исследование конкурентов → сценарии под реальные контексты → дизайн-система для трёх платформ → тест на живых пользователях — и собрала интерфейс, который стартует одним понятным тапом.</p>
+  <div class="chips">
+    <span class="chip">UX-аудит</span><span class="chip">User Flow</span><span class="chip">Дизайн-система</span>
+    <span class="chip">iOS · Material 3 · Foldable</span><span class="chip">Юзабилити-тест</span><span class="chip">AI в процессе</span>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">01</span>Проблема</h3>
+    <p>UX-аудит Strava, Nike Training Club и Freeletics выявил системные причины оттока на старте:</p>
+    <ul>
+      <li><b>Регистрация-барьер</b> — Freeletics: квиз 15–20 экранов и paywall до создания аккаунта;</li>
+      <li><b>Страх ошибки</b> — Strava: over-confirmation, свайп-подтверждение там, где достаточно undo;</li>
+      <li><b>Смешение парадигм</b> — iOS-версии копируют Material-виджеты и наоборот, пользователи путаются в жестах.</li>
+    </ul>
+    <p style="margin-top:12px">Сводные баллы чек-листа: NTC 4,5 · Strava 3,5 · Freeletics 3,0 из 5 — даже лучший конкурент оставляет «пять баллов боли».</p>
+    <div class="grid2">
+      <figure><img src="img/01-heatmap-audit.png" alt="Heatmap-таблица аудита трёх приложений с цветовой индикацией этапов"><figcaption>Heatmap аудита: 🟢 ок · 🟡 на грани · 🔴 боль</figcaption></figure>
+      <figure><img src="img/02-ux-output-table.png" alt="Таблица сравнения по критериям с колонкой UX-вывод"><figcaption>Сравнение по критериям + формулировки выводов</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">02</span>Цель и рамка проверки</h3>
+    <p>Старт AI-домашней тренировки должен быть понятен <b>в трёх контекстах</b> (тихий офис / улица+шум / стресс+слабый интернет) и <b>на трёх платформах</b> без потери логики. Критерии: 100% участников стартуют самостоятельно, 0 критичных барьеров в контексте, одна дизайн-система без форков.</p>
+    <div class="grid2">
+      <figure><img src="img/03-flow-context.png" alt="UX-флоу «старт тренировки» с шагами, окрашенными по уровню риска"><figcaption>Флоу сценария: цвет шага = уровень риска</figcaption></figure>
+      <figure><img src="img/05-ai-barriers.png" alt="Таблица AI-анализа когнитивных барьеров по контекстам"><figcaption>AI-анализ когнитивных барьеров и способы их снять</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">03</span>Дизайн-система для трёх платформ</h3>
+    <p>Единые токены (Aldrich/Inter, Primary #1A3EF5, тап-зоны 44pt/48dp, Light/Dark на Figma Variables) + платформенные правила: iOS — свайп-back, Material 3 — FAB и ripple, Foldable — двухпанельный мастер-детейл вместо растягивания. Плюс «Правила адаптации UI» — 5 правил для команды, чтобы система не разъезжалась на новых экранах.</p>
+    <figure><img src="img/06-ui-kit.png" alt="UI-kit FitAI: цвета, типографика, компоненты, карточки модулей"><figcaption>UI-kit FitAI: токены, компоненты, светлая и тёмная темы</figcaption></figure>
+    <div class="grid3">
+      <figure><img src="img/07-ios.png" alt="Экран «Старт тренировки», версия iOS"><figcaption>iOS · 390×844</figcaption></figure>
+      <figure><img src="img/08-android.png" alt="Экран «Старт тренировки», Android Material 3"><figcaption>Material 3 · 360×800</figcaption></figure>
+      <figure><img src="img/09-foldable.png" alt="Двухпанельный экран Foldable: формат слева, параметры справа"><figcaption>Foldable · 673×841, две панели</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">04</span>Юзабилити-тест на реальных устройствах</h3>
+    <p>3 участника 30–35 лет, каждый на своей платформе (iPhone 14 / Galaxy S23 / Pixel Fold): онбординг → старт тренировки → поддержка команды. Метод «думай вслух», 5 вопросов + устный фидбэк; 15 ответов кластеризованы ИИ и проверены вручную.</p>
+    <table style="margin-top:20px">
+      <tr><th>Кластер</th><th>Что обнаружено</th><th>Участники</th></tr>
+      <tr><td>Основное действие (Start)</td><td>все определили «Start» как нужное действие без подсказок</td><td>3/3</td></tr>
+      <tr><td>Интерактивность и отклик</td><td>теги-пилюли приняли за кнопки; «Send Cheers» без реакции вызвал повторные тапы</td><td>3/3</td></tr>
+      <tr><td>Foldable и офлайн</td><td>вопросы про вторую панель и доступность тренировки без интернета</td><td>2/3</td></tr>
+    </table>
+    <div class="quote">«Пилюли — это теги или кнопки? Нажал — ноль реакции» — главный вывод теста: молчащие элементы стоят доверия дороже, чем некрасивые.</div>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">05</span>Результаты</h3>
+    <div class="metrics">
+      <div class="metric"><b>3/3</b><span>сценария выполнены без подсказок</span></div>
+      <div class="metric"><b>24 · 23 · 24 <em>/25</em></b><span>A/B-скоринг: iOS · Android · Foldable</span></div>
+      <div class="metric"><b>10 → P0</b><span>замечаний превращены в план правок на спринт</span></div>
+      <div class="metric"><b>4,0 → <em>4,6+</em></b><span>прогноз лёгкости сценария после P0+P1</span></div>
+    </div>
+    <figure><img src="img/11-ab-scoring.png" alt="Таблица A/B-оценки трёх платформ по пяти критериям"><figcaption>Скоринг платформ по пяти критериям; 2/3 участников предпочли нативный iOS-вид — гипотеза «единый дизайн везде» честно убита данными</figcaption></figure>
+  </div>
+
+  <div class="block">
+    <h3><span class="num">06</span>Выводы</h3>
+    <ul>
+      <li><b>Отклик важнее эстетики:</b> анимация 200 мс и тост дешевле редизайна;</li>
+      <li><b>Кроссплатформенность = правила, а не три дизайна:</b> токены + платформенные допущения закрыли 3 платформы одним комплектом;</li>
+      <li><b>AI — второй пилот, не капитан:</b> аудит, барьеры, кластеры — ускорение ×2–3; решения — по данным;</li>
+      <li><b>3 человека нашли 80% проблем:</b> тестировать дёшево и рано полезнее, чем красиво и никогда.</li>
+    </ul>
+    <p class="quote">Сделала бы иначе: закладывала бы состояния loading/error/offline с первого дня — именно они дали больше всего вопросов на тесте.</p>
+  </div>
+</div></section>
+
+<section id="about" class="about" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div>
+    <div class="tag">О себе</div>
+    <h2>Дизайнер с двухсторонним зрением</h2>
+    <p class="sub" style="margin-bottom:18px">5+ лет в IT и продукте: frontend в R&D Lab LG Electronics, разработчик интерфейсов в Aston (ускоряла приложения на 25% и переводила макеты в код без потери UX), менеджер продукта в KiteGroup (внедрила Design QA, свела дизайн с разработкой). Сейчас — продуктовый дизайн: исследования, сценарии, системы. Говорю с разработчиками на одном языке, потому что сама оттуда.</p>
+    <div class="tagskill">
+      <span class="skill">Figma · Auto Layout · Variables</span><span class="skill">UX-аудит</span>
+      <span class="skill">User Flow · CJM</span><span class="skill">Юзабилити-тесты</span>
+      <span class="skill">iOS HIG · Material 3</span><span class="skill">WCAG AA · 44pt</span>
+      <span class="skill">Design QA</span><span class="skill">React · TS</span>
+      <span class="skill">AI в дизайн-процессе</span><span class="skill">Jira · Confluence</span>
+    </div>
+  </div>
+  <div class="side">
+    <div class="card"><h4>Образование</h4><p>School 21 (Сбер) — Дизайнер интерфейсов UX/UI, 2026<br>Яндекс.Практикум — Web Development, 2020<br>СПбГЛТУ — ландшафтная архитектура, 2026</p></div>
+    <div class="card"><h4>Языки</h4><p>Русский — родной · English — B2</p></div>
+    <div class="card"><h4>Как работаю</h4><p>Каждое решение — с критерием проверки. Токены вместо «на глаз», тест вместо спора, состояние «ошибка» вместо сюрприза.</p></div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <div class="tag">Контакты</div>
+  <h2>Свяжитесь со мной</h2>
+  <p>Открыта к позициям UX/UI-дизайнера в продуктовой команде — СПб / удалённо.</p>
+  <div class="links">
+    <a class="btn p" href="mailto:adoshurkova@yandex.ru">✉️ Написать письмо</a>
+    <a class="btn s" href="https://t.me/oshusha" target="_blank">Telegram @oshusha</a>
+    <a class="btn s" href="https://github.com/oshusha" target="_blank">GitHub</a>
+    <a class="btn s" href="resume.html" target="_blank">Резюме (страница для печати)</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Анастасия Ошуркова · designed в Figma, свёрстано руками — потому что могу</span>
+  <a href="#case" style="color:var(--accent)">↑ Наверх, к кейсу</a>
+</div></footer>
+
+</body>
+</html>
